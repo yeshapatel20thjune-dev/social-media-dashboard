@@ -71,7 +71,7 @@ app.layout = html.Div(style=PAGE_STYLE, children=[
     html.Div(id="kpi-cards", style={"marginBottom": "24px"}),
 
     # KPI 1
-    section("KPI #1 — Click-Through Rate (CTR)",
+    section("KPI - 1: Click-Through Rate (CTR) for Different Platforms",
             "How often people click after seeing the ad (Clicks ÷ Impressions)",
             [html.Div([
                 html.Div([dcc.Graph(id="ctr-bar")],  style={"flex": "1"}),
@@ -79,33 +79,33 @@ app.layout = html.Div(style=PAGE_STYLE, children=[
             ], style={"display": "flex", "gap": "16px"})]),
 
     # KPI 2
-    section("KPI #2 — Conversion Rate",
-            "Average % of clicks that result in a conversion, by Campaign Type",
+    section("KPI - 2: Conversion Rate for Different Campaign Types",
+            "Average % of clicks that result in a conversion, by Campaign Type (Conversions ÷ Clicks)",
             [dcc.Graph(id="conv-donut")]),
 
     # KPI 3
-    section("KPI #3 — Cost Per Click (CPC)",
+    section("KPI - 3: Cost Per Click (CPC) for Different Platforms",
             "Average acquisition cost per click by channel (Acquisition Cost ÷ Clicks)",
             [dcc.Graph(id="cpc-bar")]),
 
     # KPI 4
-    section("KPI #4 — Return on Ad Spend (ROAS / ROI)",
-            "Average ROI per Campaign Type grouped by Channel",
+    section("KPI - 4: Return on Ad Spend (ROAS / ROI) of Different Platforms by Campaign Types",
+            "Average ROI per Campaign Type grouped by Channel (Revenue ÷ Spend)",
             [dcc.Graph(id="roas-bar")]),
 
     # KPI 5
-    section("KPI #5 — Engagement Score by Platform & Month",
-            "Heatmap showing average engagement score across channels over time",
+    section("KPI - 5: Engagement Score by Platform & Month",
+            "Heatmap showing average engagement score across channels over time ((Likes + Comments + Shares) ÷ Impressions)",
             [dcc.Graph(id="eng-heatmap")]),
 
     # KPI 6
-    section("KPI #6 — Impressions by Platform",
+    section("KPI - 6: Impressions by Platform",
             "Total reach (impressions) across all channels — treemap view",
             [dcc.Graph(id="imp-treemap")]),
 
     # KPI 7
-    section("KPI #7 — Cost Per Conversion",
-            "Scatter plot of acquisition cost vs conversions — spot efficiency outliers",
+    section("KPI - 7: Cost Per Conversion for Different Platforms",
+            "Scatter plot of acquisition cost vs conversions — spot efficiency outliers (Spend ÷ Conversions)",
             [dcc.Graph(id="cpc-scatter")]),
 ])
 
@@ -259,8 +259,5 @@ def _card(label, value, color):
 
 
 # ── LAUNCH ────────────────────────────────────────────────────
-import os
-port = int(os.environ.get("PORT", 10000))
-
 if __name__ == "__main__":
-    app.run(debug=False, host="0.0.0.0", port=port)
+    app.run(debug=False, host="0.0.0.0", port=8050)
